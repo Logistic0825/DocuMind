@@ -4,6 +4,9 @@ import Login from '../pages/Login';
 import { createBrowserRouter } from 'react-router-dom';
 import LayoutPage from '../pages/Layout';
 import DocumentReader from '../pages/DocumentReader';
+import ChatRobot from '../pages/ChatRobot';
+import NotFoundPage from '@/pages/NotFoundPage';
+import ChatMsgExtract from '@/pages/LikeAnalyzer/ChatMsgExtract';
 
 const router = createBrowserRouter([
     {
@@ -17,6 +20,18 @@ const router = createBrowserRouter([
     {
         path:'/documentreader',
         element:<DocumentReader />
+    },
+    {
+        path:'/chatrobot',
+        element:<ChatRobot/>
+    },
+    {
+        path:'*',
+        element:<NotFoundPage/>
+    },
+    {
+        path:'/likeanalyzer/chatmsgextract',
+        element:<ChatMsgExtract/>
     }
 ])
 

@@ -1,7 +1,7 @@
 import React from'react';
 import { Layout, Card, Button, Input, message, Space } from 'antd';
-import LayoutPage from "../Layout"; // 假设这是你的布局组件
 import { useMediaQuery } from'react-responsive';
+import LayoutPage from '@/pages/Layout';
 
 const { Header, Sider, Content } = Layout;
 
@@ -26,6 +26,7 @@ const DocumentReader = () => {
 
     return (
         <LayoutPage>
+            
             <Content style={{ padding: '24px', overflow: 'auto' }}>
                 <div style={{ 
                     display: 'grid', 

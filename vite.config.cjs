@@ -1,12 +1,13 @@
 const { defineConfig } = require('vite');
 const react = require('@vitejs/plugin-react');
-const path = require('path');
-
+const { resolve } = require('path');
 module.exports = defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+  ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname,'src')
+      '@': resolve(__dirname,'./src')
     }
   }
 });
