@@ -11,7 +11,7 @@ CORS(app)
 def ChatImgExtract(imageurl):
     client = OpenAI(
         base_url="https://ark.cn-beijing.volces.com/api/v3",
-        api_key='bdc34382-a6d9-4d95-bfff-371a0c40ecb4'
+        api_key='my-api-key'
     )
     response = client.chat.completions.create(
         model="doubao-1-5-vision-pro-32k-250115",
@@ -40,7 +40,7 @@ def promptGenerative(userA, userB, chatlist):
 def SensitiveAnalysis(prompt):
     client = OpenAI(
         base_url="https://ark.cn-beijing.volces.com/api/v3",
-        api_key='bdc34382-a6d9-4d95-bfff-371a0c40ecb4'
+        api_key='my-api-key'
     )
     response = client.chat.completions.create(
         model="doubao-1-5-pro-32k-250115",
