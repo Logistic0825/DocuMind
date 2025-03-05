@@ -272,11 +272,7 @@ const LayoutPage = ({ children }) => {
                         />
                     </Sider>
                     <Content
-                        style={{
-                            padding: '0 24px',
-                            height: '60vh',
-                            border: 'black solid 1px'
-                        }}
+                        className='h-[70vh] px-6 py-0 border border-black'
                     >
                         {children}
                     </Content>

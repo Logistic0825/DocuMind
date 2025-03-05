@@ -7,6 +7,7 @@ import DocumentReader from '../pages/DocumentReader';
 import ChatRobot from '../pages/ChatRobot';
 import NotFoundPage from '@/pages/NotFoundPage';
 import ChatMsgExtract from '@/pages/LikeAnalyzer/ChatMsgExtract';
+import SentimentAnalysis from '@/pages/LikeAnalyzer/SentimentAnalysis';
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
     {
         path:'/likeanalyzer/chatmsgextract',
         element:<ChatMsgExtract/>
+    },
+    {
+        path:'/likeanalyzer/analysis',
+        element:<SentimentAnalysis/>
     }
 ])
 

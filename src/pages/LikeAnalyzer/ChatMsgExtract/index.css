@@ -1,0 +1,23 @@
+.user-b-message {
+    text-align: left;
+    background-color: #e0f7fa; /* 浅蓝色背景 */
+    padding: 8px;
+    margin: 4px;
+    border-radius: 8px;
+}
+
+.user-a-message {
+    text-align: right;
+    background-color: #f1f8e9; /* 浅绿色背景 */
+    padding: 8px;
+    margin: 4px;
+    border-radius: 8px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.message-text {
+    margin-left: 4px;
+}
