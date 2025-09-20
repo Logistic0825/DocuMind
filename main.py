@@ -1,17 +1,40 @@
 import os
 from openai import OpenAI
 from flask import Flask, request, jsonify
-
+import time 
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
+VOLENE_API_KEY = "volence-api-key"
+
+# 健康监测API
+@app.route('/health', methods=['GET'])
+def health_check():
+    """健康检查接口，返回服务状态信息"""
+    try:
+        # 可以在这里添加更多需要检查的资源状态，如数据库连接等
+        status = {
+            "status": "healthy",
+            "timestamp": int(time.time()),
+            "service": "chat-analysis-api",
+            "version": "1.0.0"
+        }
+        return jsonify(status), 200
+    except Exception as e:
+        status = {
+            "status": "unhealthy",
+            "timestamp": int(time.time()),
+            "error": str(e)
+        }
+        return jsonify(status), 500
+
 # 聊天记录图片解析
 def ChatImgExtract(imageurl):
     client = OpenAI(
         base_url="https://ark.cn-beijing.volces.com/api/v3",
-        api_key='my-api-key'
+        api_key=VOLENE_API_KEY
     )
     response = client.chat.completions.create(
         model="doubao-1-5-vision-pro-32k-250115",
@@ -40,7 +63,7 @@ def promptGenerative(userA, userB, chatlist):
 def SensitiveAnalysis(prompt):
     client = OpenAI(
         base_url="https://ark.cn-beijing.volces.com/api/v3",
-        api_key='my-api-key'
+        api_key=VOLENE_API_KEY
     )
     response = client.chat.completions.create(
         model="doubao-1-5-pro-32k-250115",
@@ -82,4 +105,4 @@ def sensitive_analysis():
         return jsonify({"success": False, "message": str(e), "data": None}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=5001)
